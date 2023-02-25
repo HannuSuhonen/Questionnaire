@@ -32,6 +32,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="True"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UHQ-ST-8mh"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AdO-uH-Ra0">
                                         <rect key="frame" x="0.0" y="659" width="393" height="100"/>
@@ -40,6 +43,9 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="False"/>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pnD-rr-6Fz"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -53,6 +59,11 @@
                             <constraint firstItem="nVN-Pj-dqR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="ooo-IL-Te6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="falseButton" destination="AdO-uH-Ra0" id="pm1-B3-4H6"/>
+                        <outlet property="questionText" destination="T0z-yI-WkH" id="h3e-Df-wLT"/>
+                        <outlet property="trueButton" destination="C7P-bg-dKY" id="rSR-kb-t9c"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
