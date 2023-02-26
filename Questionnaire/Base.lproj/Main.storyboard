@@ -20,11 +20,14 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0z-yI-WkH">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="499"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="465"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="QT3-VX-cj2">
+                                        <rect key="frame" x="0.0" y="495" width="393" height="4"/>
+                                    </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7P-bg-dKY">
                                         <rect key="frame" x="0.0" y="529" width="393" height="100"/>
                                         <constraints>
@@ -61,6 +64,7 @@
                     </view>
                     <connections>
                         <outlet property="falseButton" destination="AdO-uH-Ra0" id="pm1-B3-4H6"/>
+                        <outlet property="progressBar" destination="QT3-VX-cj2" id="xzE-J1-Cfn"/>
                         <outlet property="questionText" destination="T0z-yI-WkH" id="h3e-Df-wLT"/>
                         <outlet property="trueButton" destination="C7P-bg-dKY" id="rSR-kb-t9c"/>
                     </connections>
