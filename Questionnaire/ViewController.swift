@@ -19,40 +19,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     
     let quizQuestions = ["Begin Questionnaire?",
-                         "Test 1 question?",
-                         "Test 2 question",
-                         "Test 3 question"]
+                         "1 + 1 = 2?",
+                         "5 + 8 = 13?",
+                         "8 * 7 = 56?"]
     var currentActiveQuestion = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        questionText.text = quizQuestions[0]
-        currentActiveQuestion += 1
-        progressBar.progress = 0.25
-        // Do any additional setup after loading the view.
+        updateUI()
+        progressBar.progress = 0
     }
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         
-        print(currentActiveQuestion)
-        switch currentActiveQuestion {
-        case 0:
-            questionText.text = quizQuestions[0]
-        case 1:
-            questionText.text = quizQuestions[1]
-            progressBar.progress = 1/3
-        case 2:
-            questionText.text = quizQuestions[2]
-            progressBar.progress = 2/3
-        case 3:
-            questionText.text = quizQuestions[3]
-            progressBar.progress = 3/3
-        default:
-            //Reset Questionnaire
-            currentActiveQuestion = 0
-            return
-        }
         currentActiveQuestion += 1
+        updateUI()
+    }
+    func updateUI(){
+        progressBar.progress = Float(currentActiveQuestion)/Float(quizQuestions.count)
+        
+        if(currentActiveQuestion > 3){
+            questionText.text = "Congratz!"
+        }else{
+            questionText.text = quizQuestions[currentActiveQuestion]
+        }
     }
 }
 
