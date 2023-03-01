@@ -18,11 +18,13 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var falseButton: UIButton!
     
-    let quizQuestions = ["Begin Questionnaire?",
-                         "1 + 1 = 2?",
-                         "5 + 8 = 13?",
-                         "8 * 7 = 56?"]
+    let quizQuestions = [
+                         ["2 + 1 = 3?","True"],
+                         ["1 + 1 = 2?","True"],
+                         ["5 + 8 = 13?","True"],
+                         ["8 * 7 = 56?","True"]]
     var currentActiveQuestion = 0
+    var score = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,15 +36,28 @@ class ViewController: UIViewController {
         
         currentActiveQuestion += 1
         updateUI()
+        
+        if(currentActiveQuestion > 3){return}
+        
+        print(quizQuestions[currentActiveQuestion][1])
+        
+        if(sender.titleLabel?.text == quizQuestions[currentActiveQuestion][1]){
+            score += 1
+        }else{
+            score -= 1
+        }
+       
+        print(score)
+        
     }
     func updateUI(){
-        progressBar.progress = Float(currentActiveQuestion)/Float(quizQuestions.count)
-        
         if(currentActiveQuestion > 3){
             questionText.text = "Congratz!"
         }else{
-            questionText.text = quizQuestions[currentActiveQuestion]
+            questionText.text = quizQuestions[currentActiveQuestion][0]
         }
+        
+        progressBar.progress = Float(currentActiveQuestion)/Float(quizQuestions.count)
     }
 }
 
