@@ -34,25 +34,26 @@ class ViewController: UIViewController {
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         
+        if(currentActiveQuestion >= quizQuestions.count){ return }
+        
+        let quizAnswer = sender.titleLabel?.text //True, false
+        let chosenAnswer = quizQuestions[currentActiveQuestion][1]
+        
+        if(chosenAnswer == quizAnswer){
+            score += 1
+        }
+        print(score)
+        
         currentActiveQuestion += 1
         updateUI()
-        
-        if(currentActiveQuestion > 3){return}
-        
-        print(quizQuestions[currentActiveQuestion][1])
-        
-        if(sender.titleLabel?.text == quizQuestions[currentActiveQuestion][1]){
-            score += 1
-        }else{
-            score -= 1
-        }
-       
-        print(score)
         
     }
     func updateUI(){
         if(currentActiveQuestion > 3){
-            questionText.text = "Congratz!"
+            let scoreIndecimal = Float(score)/Float(quizQuestions.count)
+            let scoreInPercent = scoreIndecimal * 100
+                                             
+            questionText.text = "Congratz! Your score is \(scoreInPercent) %"
         }else{
             questionText.text = quizQuestions[currentActiveQuestion][0]
         }
