@@ -34,7 +34,13 @@ class ViewController: UIViewController {
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         
-        if(currentActiveQuestion >= quizQuestions.count){ return }
+        if(currentActiveQuestion >= quizQuestions.count){
+            currentActiveQuestion = 0
+            score = 0
+            updateUI()
+            return
+        }
+        print(currentActiveQuestion)
         
         let quizAnswer = sender.titleLabel?.text //True, false
         let chosenAnswer = quizQuestions[currentActiveQuestion][1]
@@ -42,11 +48,8 @@ class ViewController: UIViewController {
         if(chosenAnswer == quizAnswer){
             score += 1
         }
-        print(score)
-        
         currentActiveQuestion += 1
         updateUI()
-        
     }
     func updateUI(){
         if(currentActiveQuestion > 3){
@@ -57,7 +60,6 @@ class ViewController: UIViewController {
         }else{
             questionText.text = quizQuestions[currentActiveQuestion][0]
         }
-        
         progressBar.progress = Float(currentActiveQuestion)/Float(quizQuestions.count)
     }
 }
