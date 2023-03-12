@@ -13,6 +13,7 @@
 		D4F8A12429A634F300A4228F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F8A12229A634F300A4228F /* Main.storyboard */; };
 		D4F8A12629A634F700A4228F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4F8A12529A634F700A4228F /* Assets.xcassets */; };
 		D4F8A12929A634F700A4228F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D4F8A12729A634F700A4228F /* LaunchScreen.storyboard */; };
+		D4F8A13129BE56CC00A4228F /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4F8A13029BE56CC00A4228F /* Question.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D4F8A12529A634F700A4228F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D4F8A12829A634F700A4228F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D4F8A12A29A634F700A4228F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D4F8A13029BE56CC00A4228F /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				D4F8A12529A634F700A4228F /* Assets.xcassets */,
 				D4F8A12729A634F700A4228F /* LaunchScreen.storyboard */,
 				D4F8A12A29A634F700A4228F /* Info.plist */,
+				D4F8A13029BE56CC00A4228F /* Question.swift */,
 			);
 			path = Questionnaire;
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4F8A12129A634F300A4228F /* ViewController.swift in Sources */,
+				D4F8A13129BE56CC00A4228F /* Question.swift in Sources */,
 				D4F8A11D29A634F300A4228F /* AppDelegate.swift in Sources */,
 				D4F8A11F29A634F300A4228F /* SceneDelegate.swift in Sources */,
 			);

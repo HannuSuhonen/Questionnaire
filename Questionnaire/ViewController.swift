@@ -19,10 +19,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     
     let quizQuestions = [
-                         ["2 + 1 = 3?","True"],
-                         ["1 + 1 = 2?","True"],
-                         ["5 + 8 = 13?","True"],
-                         ["8 * 7 = 56?","True"]]
+        Question(text: "2 + 1 = 3",answer: "True"),
+        Question(text: "1 + 1 = 2?",answer: "True"),
+        Question(text: "5 + 8 = 13?",answer: "True"),
+        Question(text: "8 * 7 = 56?",answer: "True")
+    ]
     var currentActiveQuestion = 0
     var score = 0
     
@@ -43,7 +44,7 @@ class ViewController: UIViewController {
         print(currentActiveQuestion)
         
         let quizAnswer = sender.titleLabel?.text //True, false
-        let chosenAnswer = quizQuestions[currentActiveQuestion][1]
+        let chosenAnswer = quizQuestions[currentActiveQuestion].answer
         
         if(chosenAnswer == quizAnswer){
             score += 1
@@ -58,7 +59,7 @@ class ViewController: UIViewController {
                                              
             questionText.text = "Congratz! Your score is \(scoreInPercent) %"
         }else{
-            questionText.text = quizQuestions[currentActiveQuestion][0]
+            questionText.text = quizQuestions[currentActiveQuestion].text
         }
         progressBar.progress = Float(currentActiveQuestion)/Float(quizQuestions.count)
     }
