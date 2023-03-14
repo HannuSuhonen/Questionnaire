@@ -19,12 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var falseButton: UIButton!
     var defaultButtonColor = UIColor.white
     
-    let quizQuestions = [
-        Question(q: "2 + 1 = 3",a: "True"),
-        Question(q: "1 + 1 = 2?",a: "True"),
-        Question(q: "5 + 8 = 13?",a: "True"),
-        Question(q: "8 * 7 = 56?",a: "True")
-    ]
+
     var currentActiveQuestion = 0
     var score = 0
     
