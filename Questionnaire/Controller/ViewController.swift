@@ -17,10 +17,10 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var falseButton: UIButton!
-    var defaultButtonColor = UIColor.white
     
+    var quizBrain = QuizBrain()
 
-    var currentActiveQuestion = 0
+
     var score = 0
     
     override func viewDidLoad() {
@@ -39,7 +39,8 @@ class ViewController: UIViewController {
         }
         print(currentActiveQuestion)
         
-        let quizAnswer = sender.titleLabel?.text //True, false
+        let quizAnswer = sender.titleLabel!.text! //True, false
+        quizBrain.checkAnswer(quizAnswer)
         let chosenAnswer = quizQuestions[currentActiveQuestion].answer
         
         if(chosenAnswer == quizAnswer){

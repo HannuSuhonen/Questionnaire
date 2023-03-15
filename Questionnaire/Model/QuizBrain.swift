@@ -14,4 +14,14 @@ struct QuizBrain{
         Question(q: "5 + 8 = 13?",a: "True"),
         Question(q: "8 * 7 = 56?",a: "True")
     ]
+    var currentActiveQuestion = 0
+    
+    func checkAnswer(_ userAnswer : String) -> String{
+        if(userAnswer == quizQuestions[currentActiveQuestion].answer){
+            //Correct
+        }else{
+            //Wrong
+        }
+        return userAnswer
+    }
 }
