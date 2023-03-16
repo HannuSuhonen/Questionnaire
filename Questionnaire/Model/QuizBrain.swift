@@ -16,12 +16,24 @@ struct QuizBrain{
     ]
     var currentActiveQuestion = 0
     
-    func checkAnswer(_ userAnswer : String) -> String{
+    func checkAnswer(userAnswer : String) -> Bool{
         if(userAnswer == quizQuestions[currentActiveQuestion].answer){
-            //Correct
+            return true
         }else{
-            //Wrong
+            return false
         }
-        return userAnswer
+    }
+    func getQuizProgression() -> Float{
+        return Float(currentActiveQuestion)/Float(quizQuestions.count)
+    }
+    func getCurrentQuestionText(_ score:Int) -> String{
+        if(currentActiveQuestion > 3){
+            let scoreIndecimal = Float(score)/Float(quizQuestions.count)
+            let scoreInPercent = scoreIndecimal * 100
+            
+            return "Congratz! Your score is \(scoreInPercent) %"
+        }else{
+            return quizQuestions[currentActiveQuestion].text
+        }
     }
 }

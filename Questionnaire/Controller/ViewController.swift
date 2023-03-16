@@ -31,27 +31,26 @@ class ViewController: UIViewController {
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         
-        if(currentActiveQuestion >= quizQuestions.count){
-            currentActiveQuestion = 0
+        if(quizBrain.currentActiveQuestion >= quizBrain.quizQuestions.count){
+            quizBrain.currentActiveQuestion = 0
             score = 0
             updateUI()
             return
         }
-        print(currentActiveQuestion)
         
         let quizAnswer = sender.titleLabel!.text! //True, false
-        quizBrain.checkAnswer(quizAnswer)
-        let chosenAnswer = quizQuestions[currentActiveQuestion].answer
+        let ifUserGotItRight = quizBrain.checkAnswer(userAnswer: quizAnswer)
+        //let chosenAnswer = quizQuestions[currentActiveQuestion].answer
         
-        if(chosenAnswer == quizAnswer){
+        if(ifUserGotItRight){
             score += 1
         }
-        currentActiveQuestion += 1
+        quizBrain.currentActiveQuestion += 1
         updateUI()
-        updatebuttonColor(button: sender, chosenAnswer: chosenAnswer, quizAnswer: quizAnswer!)
+        updatebuttonColor(button: sender, ifUserGotItRight: ifUserGotItRight)
     }
-    func updatebuttonColor( button: UIButton, chosenAnswer: String, quizAnswer: String){
-        if(chosenAnswer == quizAnswer){
+    func updatebuttonColor( button: UIButton, ifUserGotItRight: Bool){
+        if(ifUserGotItRight){
             button.backgroundColor = UIColor.green
         }else{
             button.backgroundColor = UIColor.red
@@ -61,15 +60,8 @@ class ViewController: UIViewController {
         }
     }
     func updateUI(){
-        if(currentActiveQuestion > 3){
-            let scoreIndecimal = Float(score)/Float(quizQuestions.count)
-            let scoreInPercent = scoreIndecimal * 100
-                                             
-            questionText.text = "Congratz! Your score is \(scoreInPercent) %"
-        }else{
-            questionText.text = quizQuestions[currentActiveQuestion].text
-        }
-        progressBar.progress = Float(currentActiveQuestion)/Float(quizQuestions.count)
+        questionText.text = quizBrain.getCurrentQuestionText(score)
+        progressBar.progress = quizBrain.getQuizProgression()
     }
 }
 
