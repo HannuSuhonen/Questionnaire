@@ -6,27 +6,46 @@
 //
 
 import Foundation
+import UIKit
 
 struct QuizBrain{
     let quizQuestions = [
-        Question(q: "2 + 1 = 3",a: "True"),
-        Question(q: "1 + 1 = 2?",a: "True"),
+        Question(q: "2 + 4 = 8",a: "False"),
+        Question(q: "2 + 9 = 12?",a: "False"),
         Question(q: "5 + 8 = 13?",a: "True"),
         Question(q: "8 * 7 = 56?",a: "True")
     ]
     var currentActiveQuestion = 0
+    var score = 0
+    var userGotItRight = false
+    var quizEnded = false
     
-    func checkAnswer(userAnswer : String) -> Bool{
+    mutating func checkAnswer(userAnswer : String){
+        
+        if(currentActiveQuestion >= quizQuestions.count){
+            currentActiveQuestion = 0
+            score = 0
+            quizEnded = true
+            return
+        }
+        else
+        {
+            quizEnded = false
+        }
+        
         if(userAnswer == quizQuestions[currentActiveQuestion].answer){
-            return true
+            score += 1
+            currentActiveQuestion += 1
+            userGotItRight = true
         }else{
-            return false
+            currentActiveQuestion += 1
+            userGotItRight = false
         }
     }
     func getQuizProgression() -> Float{
         return Float(currentActiveQuestion)/Float(quizQuestions.count)
     }
-    func getCurrentQuestionText(_ score:Int) -> String{
+    func getCurrentQuestionText() -> String{
         if(currentActiveQuestion > 3){
             let scoreIndecimal = Float(score)/Float(quizQuestions.count)
             let scoreInPercent = scoreIndecimal * 100
@@ -34,6 +53,19 @@ struct QuizBrain{
             return "Congratz! Your score is \(scoreInPercent) %"
         }else{
             return quizQuestions[currentActiveQuestion].text
+        }
+    }
+    mutating func updatebuttonColor( button: UIButton){
+        if(quizEnded){
+            return
+        }
+        if(userGotItRight){
+            button.backgroundColor = UIColor.green
+        }else{
+            button.backgroundColor = UIColor.red
+        }
+            Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false) { (timer) in
+                button.backgroundColor = .clear
         }
     }
 }
